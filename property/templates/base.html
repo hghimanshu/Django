@@ -17,9 +17,17 @@
         <title>Property Management System</title>
     </head>
     <body>
+        <!-- Top bar -->
+        {% include 'partials/_topbar.html' %}
+        <!-- Nav bar -->
+        {% include 'partials/_navbar.html' %}
+
         {% block content %}
 
         {% endblock %}
+        <!-- Footer -->
+        {% include 'partials/_footer.html' %}
+
 
         <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
         <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
