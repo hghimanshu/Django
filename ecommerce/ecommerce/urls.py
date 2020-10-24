@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from products.views import ProductListView, ProductDetailView
+from products.views import (ProductListView, 
+                                ProductDetailView, ProductFeaturedDetailView, 
+                                ProductFeaturedListView, ProductDetailSlugView)
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', ProductListView.as_view()),
-    re_path(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view())  ## path is depreceated for regular expressions
+    # re_path(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),  ## path is depreceated for regular expressions
+    path('featured/', ProductFeaturedListView.as_view()),
+    re_path(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),  ## path is depreceated for regular expressions
+    re_path(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),  ## path is depreceated for regular expressions
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
