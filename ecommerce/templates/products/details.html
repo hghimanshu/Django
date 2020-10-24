@@ -2,4 +2,6 @@
 
 {{ object.description }} <br/>
 
-<img src="{{ object.image.url }}" class="img-fluid" />
+{% if object.image %}
+    <img src="{{ object.image.url }}" class="img-fluid" />
+{% endif %}
