@@ -133,3 +133,10 @@ dmypy.json
 .vscode
 migrations/
 static_cdn
+
+
+## unnecessary projects 
+round2assignment*
+bmi-calculator
+backend_dev_production_api_task*
+test.py
